@@ -1,0 +1,40 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User Registration Form</title>
+ 
+</head>
+<body>
+<div class="container">
+    <h2 class="hi" >  User Registration </h2>
+    <h4 class="y"  >Note : fill following details !</h4>
+    <form action="{{ url_for('register') }}" method="post">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                        {{ message }}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <br>
+        <div class="form-group">
+            <label class="username">Username:</label>
+             <input class="ok" type="text" class="form-control" id="username" name="username" placeholder="Enter name" name="name">
+        </div>
+        <div class="form-group">
+            <label class="email">Email:</label>
+             <input class="ok" type="email" class="form-control" id="email" name="email" placeholder="Enter email" name="email">
+        </div>
+        <div class="form-group">
+            <label class="password">Password:</label>
+        <input class="ok" type="password" class="form-control" id="password" name="password" placeholder="Enter password" name="pswd">
+        </div>    
+        <button class="btn" type="submit" class="btn btn-primary">Register</button>
+        <p class="bottom">Already have an account?  
+        <a class="bottom" href="{{url_for('login')}}"> Login here</a></p>
+    </form>
+</div>        
+</body>
+</html>
